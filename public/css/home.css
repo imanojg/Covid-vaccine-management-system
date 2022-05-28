@@ -1,0 +1,75 @@
+body {
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+}
+/*  https://images.pexels.com/photos/4022782/pexels-photo-4022782.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940 */
+.mypage{
+	padding-top: 240px;
+	padding-bottom: 240px;
+	background-image: url("https://cdn.pixabay.com/photo/2020/03/08/10/08/coronavirus-4912023_1280.jpg");
+	background-color: rgba(0, 181, 204, 1);
+	background-size: cover;
+	bottom: 0px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	background-position: right center;
+	background-size: 60%;
+	background-repeat: no-repeat;
+}
+
+.mypage h1{
+	font-size: 17vmin;
+}
+
+.mypage h1 span{
+	background-color: orange;
+	color:white;
+	padding-left: 20px;
+}
+
+.mypage p{
+	padding-left:9%;
+	margin-top: 3vmin;
+}
+
+.mypage h1 span{
+	box-shadow: 10px 10px 10px rgba(44, 62, 80, 1);
+}
+
+.mypage p span{
+	font-size: 4vmin;
+	font-weight: 400;
+	color:white;
+}
+
+.count{
+	padding-top: 40vmin;
+	padding-bottom: 30vmin;
+}
+
+.count h2{
+	color: green;
+	font-size: 7vmin;
+}
+.img{
+	border-radius: 900px;
+	width: 60%;
+	margin-bottom: 4vmin;
+}
+
+@media only screen and (max-width: 1200px) {
+  .mypage{
+	
+	background-image: url("https://images.pexels.com/photos/4022782/pexels-photo-4022782.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+	background-size: cover;
+	background-position: left center;
+	}
+	.mypage{
+	padding-top: 7vmin;
+	padding-bottom: 100vmin;
+	}
+
+	.mypage h1 span{
+	background-color: rgba(0,0,0,0.8);
+	color:white;
+	padding-left: 20px;
+	}
+}

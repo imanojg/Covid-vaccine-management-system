@@ -1,0 +1,20 @@
+body{
+  background-color:rgba(0,0,0,0.8);
+}
+hr{
+  color:white;
+}
+.card{
+  width: 95%;
+  padding-bottom: 5vmin;
+  padding-top: 5vmin;
+  color: white;
+}
+
+.card-text{
+  font-size: 20px;
+}
+
+
+  
+
