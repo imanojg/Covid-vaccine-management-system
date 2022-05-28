@@ -1,0 +1,142 @@
+<%- include('partials/loggedin'); -%>
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    #myInput {
+      background-image: url('/css/searchicon.png');
+      background-position: 10px 10px;
+      background-repeat: no-repeat;
+      width: 100%;
+      font-size: 16px;
+      padding: 10px 20px;
+      border: 1px solid #ddd;
+      margin-bottom: 12px;
+    }
+
+    #myTable {
+      border-collapse: collapse;
+      width: 90%;
+      margin: 0 auto;
+      border: 1px solid #ddd;
+      font-size: 18px;
+    }
+
+    #myTable th,
+    #myTable td {
+      text-align: center;
+      padding: 12px;
+    }
+
+    #myTable tr {
+      border-bottom: 1px solid #ddd;
+    }
+
+    #myTable tr.header,
+    #myTable tr:hover {
+      background-color: #f1f1f1;
+    }
+  </style>
+  </head>
+
+  <body>
+    <div
+      style="box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);padding:20px;background-color: rgba(0,0,0,0.7);color: white;"
+      class="container-fluid">
+      <form class="form-inline" style="padding:20px;" method="post" action="/inventory_data">
+
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="id">Inventory ID&nbsp; &nbsp;</label>
+          <input type="number" class="form-control" id="id" name="id" placeholder="Enter ID" required>
+        </div>&nbsp;&nbsp;
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="quantity">Quantity&nbsp; &nbsp;</label>
+          <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Enter Quantity" required>
+        </div>&nbsp;&nbsp;
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="date">Date&nbsp; &nbsp;</label>
+          <input type="date" class="form-control" id="date" name="date" placeholder="Enter Quantity" required>
+        </div>&nbsp;&nbsp;
+        <button type="submit" class="form-control btn btn-primary mx-sm-3 mb-3">Add!</button>
+      </form>
+    </div>
+    <br><br>
+    <h1 style="text-align: center; font-family:Times New Roman;font-size: 40px">Inventory Data</h1>
+
+    <div class="float-right" style="padding-right: 70px">
+      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Name">
+    </div><br><br>
+
+    <table id="myTable" style="font-family: gadugi;text-align: center">
+      <tr class="header" style="background-color:rgb(60,179,113);color: white;">
+        <th style="width:2%;color: rgba(255,255,255,0.8);">Delete</th>
+        <th style="width:7%;">ID</th>
+        <th style="width:15%;">Name</th>
+        <th style="width:15%;">Contact No</th>
+        <th style="width:15%;">Pincode</th>
+        <th style="width:18%;">Date</th>
+        <th style="width:15%;">Quantity</th>
+        <th style="width:18%;">Cost</th>
+      </tr>
+      <% var total=0; for(i=0;i<inventory.length ;i++){ %>
+        <tr>
+          <td>
+            <form action="/delete" method="post">
+              <div>
+                <% if (inventory[i].s_quantity> quant_rem) { %>
+                  <input type="checkbox" onChange="this.form.submit()" name="checkbox" value="<%= inventory[i].s_id %>"
+                    disabled>
+                  <% } else { %>
+                    <input type="checkbox" onChange="this.form.submit()" name="checkbox"
+                      value="<%= inventory[i].s_id %>">
+                  <% } %>
+              </div>
+            </form>
+          </td>
+          <td>
+            <%= inventory[i].I_id %>
+          </td>
+          <td>
+            <%= inventory[i].I_name %>
+          </td>
+          <td>
+            <%= inventory[i].I_contactno %>
+          </td>
+          <td>
+            <%= inventory[i].I_address %>
+          </td>
+          <td>
+            <%= inventory[i].s_time.toString().substring(0,16) %>
+          </td>
+          <td>
+            <%= inventory[i].s_quantity %>
+          </td>
+          <td>
+            <%= cost[i].total_cost %>/-
+          </td>
+        </tr>
+        <% total +=cost[i].total_cost } %>
+    </table>
+
+    <p style="font-size: 22px;color:black;font-family: 'Karla', sans-serif;margin-left: 5%;margin-top: 1.5%;">Total
+      cost: <%= total %>/-</p>
+    <script type="text/javascript" src="js/search.js"></script>
+
+
+    <script>
+      Myfunc(<%= check %>);
+      function Myfunc(check) {
+        if (check === 1) {
+          alert("Unable to update, please check your data.");
+        }
+      }
+    </script>
+    <%- include('partials/footer'); -%>

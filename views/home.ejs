@@ -1,0 +1,139 @@
+<%- include('partials/header'); -%>
+
+<link rel="stylesheet" type="text/css" href="css/home.css">
+<link href="/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+
+
+<div class="px-3 mypage">
+    <h1 style="padding-left:9%;"><span>Co-Vac.</span></h1>
+    <p class="lead"><span>Arm Yourself Against Covid</span></p>
+ </div>
+
+ <div class="container fluid count">
+    <div class="row">
+      <div class="col-lg-4 text-center">
+        <img src="images/vaccine.png" class="img-fluid img">
+       <% if (count.count_vacc === undefined) count.count_vacc=0; %>
+        <h2>+<%= count.count_vacc %></h2>
+        <p>Citizens Have Been Registered</p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4 text-center">
+        <img src="images/doctor.png" class="img-fluid img">
+       <% if (count.count_hosp === undefined) count.count_hosp=0; %>
+        <h2>+<%= count.count_hosp %></h2>
+        <p>Hospitals Have Been Registered</p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4 text-center">
+        <img src="images/hospital.png" class="img-fluid img">
+       <% if (count.count_invent === undefined) count.count_invent=0; %>
+        <h2>+<%= count.count_invent %></h2>
+        <p>Inventories Have Been Connected</p>
+      </div>
+    </div>
+
+</div>
+
+<div class="bg-dark text-secondary px-4 py-5 text-center"  style="margin-bottom: 20vmin;">
+  <div class="py-5">
+    <h1 class="display-5 fw-bold text-white">Why Vaccinate?</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="fs-5 mb-4" style="color:rgba(255,255,255,0.7);">Vaccination is a safe and effective way to prevent disease and save lives – now more than ever. When we get vaccinated, we aren’t just protecting ourselves, but also those around us. Some people, like those who are seriously ill, are advised not to get certain vaccines – so they depend on the rest of us to get vaccinated and help reduce the spread of disease.</p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold" onclick="myFunction()">Cause It Matters</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<% for(var j=0;j<vaccine.length;j++){ %>
+  <div class="card text-center mx-auto" style="margin-top: 2vmin;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+  <div class="card-body">
+    <h1 class="card-title"><%= vaccine[j].H_vac %></h1>
+    <p class="card-text">
+      Number of patients successfully registered
+    </p>
+    <h1 style="color: green">+<%= vaccine[j].count_ %></h1>
+  </div>
+</div>
+</div>
+<% } %>
+
+<div style="background-image: url('images/image1.jpg');padding-top: 10vmin;padding-bottom: 56vmin;background-position: center;background-size:100% 100%;">
+    <h1 style="font-weight: 600;font-size: 12vmin;margin-left: 10%;"><span style="background-color:rgba(255,255,255,0.3);">Say hi to<br> Handwash.</span></h1>
+</div>
+
+<section class="section-4" style="padding-top: 20vmin;">
+            <div class="container text-center">
+              <h1 class="ml9">
+                <span class="text-wrapper">
+                  <span class="letters" style="color:#8a0303;font-family: 'Frank Ruhl Libre', serif;font-size: 55px">Who Are We?</span>
+                </span>
+              </h1>
+              <p  style="color:grey; font-size:23px;font-family:gadugi">We are an organisation who keep a track of all the vaccination data to give you trusted statistics</p>
+            </div>
+            <div class="container" style="padding-bottom: 80px;">
+            <div class="row">
+              <div class="col-lg-4 col-12 text-center">
+                  <div class="card mr-2 d-inline-block shadow-lg" style="box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);">
+                      <div class="card-img-top">
+                        <img src="images/madam.jpg" class="img-fluid border-radius p-4">
+                      </div>
+                      <div class="card-body">
+                        <h3 class="card-title">Virus v/s Existence</h3><br>
+                        <p class="card-text" style="font-family: 'Overpass', sans-serif;color: gray;">
+                          The evolution of novel coronavirus and the eventual outbreak of COVID-19 has put the burden on the medical fraternity and the scientific community to identify the components of this viral entity including its genome, replication cycle, proteome as well as modes of transmission. This can only be achieved with collaborative efforts backed up by advances in molecular and structural virology.
+                        </p>
+                      </div>
+                    </div>
+              </div>
+
+                <div class="col-lg-4 col-12 text-center">
+                  <div class="card mr-2 d-inline-block shadow-lg" style="box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);">
+                      <div class="card-img-top">
+                        <img src="images/testing.jpg" class="img-fluid border-radius p-4">
+                      </div>
+                      <div class="card-body">
+                        <h3 class="card-title">Prevention is better than cure they say</h3><br>
+                        <p class="card-text" style="font-family: 'Overpass', sans-serif;color: gray;">
+                            <b>To prevent the spread of COVID-19:</b>
+                            Clean your hands often. Use soap and water, or an alcohol-based hand rub.
+                            Maintain a safe distance from anyone who is coughing or sneezing.
+                            Wear a mask when physical distancing is not possible.
+                            Don’t touch your eyes, nose or mouth.
+                            Cover your nose and mouth with your bent elbow or a tissue when you cough or sneeze.
+                            Stay home if you feel unwell.
+                            If you have a fever, cough and difficulty breathing, seek medical attention. 
+                        </p>
+                      </div>
+                    </div>
+              </div>
+
+
+              <div class="col-lg-4 col-12 text-center">
+                  <div class="card mr-2 d-inline-block shadow-lg" style="box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);">
+                      <div class="card-img-top">
+                        <img src="images/inject.jpg" class="img-fluid border-radius p-4" alt="">
+                      </div>
+                      <div class="card-body">
+                        <h3 class="card-title">Sarkari Sandesh</h3><br>
+                        <p class="card-text" style="font-family: 'Overpass', sans-serif;color: gray;">
+                            Facing a stubborn infection rate still hovering around 4,000 new cases of COVID-19 a day, Govenrment has very little room to safely manoeuvre around coronavirus restrictions.Government ministers and their scientific advisors have been at pains to point out it's a number that can't be compared internationally.Calling in advance allows your healthcare provider to quickly direct you to the right health facility. This protects you, and prevents the spread of viruses and other infections.
+                        </p>
+                      </div>
+                    </div>
+              </div>
+            </div>
+          </div>
+          </section>
+<script type="text/javascript">
+  function myFunction() {
+  
+    alert("Do Gaj Doori, Mask hai Jaruri!");
+}
+</script>
+
+<script type="text/javascript" src="js/end.js"></script>
+<%- include('partials/footer'); -%>

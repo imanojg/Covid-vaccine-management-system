@@ -1,0 +1,78 @@
+<%- include('partials/header'); -%>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+
+<div class="container" style="margin-top: 10vmin;">
+	
+<form style="padding: 100px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);font-family: 'Varela Round', sans-serif;" method="post" action="/patient">
+	<h1 style="font-family: 'Dancing Script', cursive;">Register for Patients</h1><hr>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputName"><img src="images/name.png" width="4%">&nbsp;Name</label>
+      <input type="text" class="form-control" id="inputName" name="inputName" placeholder="Enter your Full Name" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputEmail"><img src="images/email.png" width="4%">&nbsp;Email</label>
+      <input type="Email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Enter Email ID">
+    </div>
+  </div><br>
+
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputContact"><img src="images/call.png" width="4%">&nbsp;Contact No</label>
+      <input type="number" class="form-control" id="contact" placeholder="Enter your Contact Number" required max="9999999999" min="1000000000" name="contact" oninvalid="this.setCustomValidity('Please Enter Correct Phone Number')">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputGender"><img src="images/gender.png" width="5%">&nbsp;Gender</label>
+  <label class="radio-inline"><input type="radio" name="optradio" checked value="Male">&nbsp;Male&nbsp;</label>
+  <label class="radio-inline"><input type="radio" name="optradio" value="Female">&nbsp;Female&nbsp;</label>
+  <label class="radio-inline"><input type="radio" name="optradio" value="Others">&nbsp;Others</label>
+    </div>
+  </div><br>
+
+
+
+  <div class="form-row">
+  	<div class="form-group col-md-6">
+    <label for="inputDOB"><img src="images/date.png" width="4%">&nbsp;Date of Birth</label>
+    <input type="date" class="form-control" id="inputDOB" name="inputDOB" placeholder="DOB" required>
+  </div>
+  <div class="form-group col-md-6">
+    <label for="inputPIN"><img src="images/pin.png" width="4%">&nbsp;PIN Code</label>
+    <select id="inputPIN" name="inputPIN" class="form-control">
+      <% for(var i =0;i<pincodes.length;i++){ %>
+      <option class="form-group"><%= pincodes[i].pincode %></option>
+    <% } %>
+    </select>
+  </div>
+  </div><br>
+
+
+  
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck" required>
+      <label class="form-check-label" for="gridCheck">
+        I Undertsand Government RNR and will present an Photo ID proof at the Time of Vaccination.
+      </label>
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-between">
+  	<div class="col-md-8">
+  		<button type="submit" class="btn btn-primary" style="width: 40%">Register</button>
+  	</div>
+  	<div class="col-md-4">
+  		<br><img src="images/vaccine1.png" class="img-fluid">
+  	</div>
+  	
+  </div>
+</form>
+
+</div>
+
+<%- include('partials/footer'); -%>

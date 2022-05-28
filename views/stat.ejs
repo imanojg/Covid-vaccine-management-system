@@ -1,0 +1,173 @@
+<%- include('partials/header'); -%>
+
+<link rel="stylesheet" type="text/css" href="css/view.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+
+<div class="container text-center" style="margin-top: 10vmin;">
+  <h1 style="font-family: 'Josefin Sans', sans-serif;font-size: 7.5vmin;color:white;">Statistics Viyond</h1>
+</div>
+
+<hr style="width: 100%;height: 2px;margin: 40px auto;">
+
+<% var total = 0 %>
+<% for(var i = 0;i<vacc.length;i++){ %>
+<%  total+=vacc[i].count; %>
+<% } %>
+
+<h3 style="text-align: center;margin-top: 5vmin;color:lightgreen;">Total count of patients : <%= total %> </h3>
+
+<div class="row container mx-auto" style="margin-top: 8vmin;">
+  <% if (gender[0]!==undefined){ %>
+  <div class=" col-md-4">
+  <div class="card bg-light" style="border-radius: 0px;">
+    <div class="card-body text-center">
+        <h5 class="card-title" style="font-size: 30px;color: black;"><%= gender[0].P_Gender %> Patients</h5><hr>
+        <p class="card-text" style="font-weight: 500;font-size: 60px;color: green;"><%= Math.floor(gender[0].percentage *100)/100 %>%</p>
+      <p style="font-size: 22px;color: grey;">Total count: <%= gender[0].count %></p>
+    </div>
+  </div>
+</div>
+  <% } %>
+  <% if (gender[1]!==undefined){ %>
+  <div class=" col-md-4">
+    <div class="card bg-light" style="border-radius: 0px;">
+      <div class="card-body text-center">
+        <h5 class="card-title" style="font-size: 30px;color: black;"><%= gender[1].P_Gender %> Patients</h5><hr>
+        <p class="card-text" style="font-weight: 500;font-size: 60px;color: green;"><%= Math.floor(gender[1].percentage*100)/100 %>%</p>
+        <p style="font-size: 22px;color: grey;">Total count: <%= gender[1].count %></p>
+      </div>
+    </div>
+  </div> 
+    <% } %>
+    <% if (gender[2]!==undefined){ %>
+  <div class=" col-md-4">
+  <div class="card bg-light" style="border-radius: 0px;">
+    <div class="card-body text-center">
+      <h5 class="card-title" style="font-size: 30px;color: black;"><%= gender[2].P_Gender %> Patients</h5><hr>
+      <p class="card-text" style="font-weight: 500;font-size: 60px;color: green;"><%= Math.floor(gender[2].percentage*100)/100 %>%</p>
+      <p style="font-size: 22px;color: grey;">Total count: <%= gender[2].count %></p>
+    </div>
+  </div>
+</div>
+<% } %>
+</div><br>
+ 
+
+<div class="card-columns container" style="margin-top: 8vmin;margin-bottom: 7vmin">
+  
+   <% if (dose!==undefined){ 
+    var perc = dose.onedose + dose.twodose + dose.nodose; %>
+    <div class="card bg-success">
+      <div class="card-body text-center">
+        <h5 class="card-title" style="font-size: 30px">Both dose</h5><hr>
+        <p class="card-text" style="font-weight: 500;font-size: 60px;"><%= Math.floor(dose.twodose*100/perc * 100)/100 %>%</p>
+        <p style="font-size: 22px;">Total count: <%= dose.twodose %> </p>
+      </div>
+    </div>
+  <% } %> 
+
+  <% if (dose!==undefined){ %>
+      <div class="card bg-primary">
+        <div class="card-body text-center">
+          <h5 class="card-title" style="font-size: 30px">One dose</h5><hr>
+          <p class="card-text" style="font-weight: 500;font-size: 60px;"><%= Math.floor(dose.onedose*100/perc * 100)/100 %>%</p>
+          <p style="font-size: 22px;">Total count: <%= dose.onedose %> </p>
+        </div>
+      </div>
+    <% } %> 
+    
+  
+ <% if (dose!==undefined){ %>
+      <div class="card bg-danger">
+        <div class="card-body text-center">
+          <h5 class="card-title" style="font-size: 30px">No dose</h5><hr>
+          <p class="card-text" style="font-weight: 500;font-size: 60px;"><%= Math.floor(dose.nodose*100/perc * 100)/100 %>%</p>
+          <p style="font-size: 22px;">Total count: <%= dose.nodose %> </p>
+        </div>
+      </div>
+    <% } %>  
+  
+</div>
+
+<div class="card-columns container" style="margin-top: 8vmin;margin-bottom: 7vmin;">
+<% for(var i = 0;i<vacc.length;i++){ %>
+  <div class="card bg-dark">
+        <div class="card-body text-center">
+          <h5 class="card-title" style="font-size: 30px"><%= vacc[i].h_vac %></h5><hr>
+          <p class="card-text" style="font-weight: 500;font-size: 60px;color: greenyellow;"><%= Math.floor(vacc[i].percentage *100)/100 %>%</p>
+          <p style="font-size: 22px;">Total count: <%= vacc[i].count %> </p>
+        </div>
+      </div>
+  <% } %>
+</div>
+
+<div class="row container mx-auto" style="margin-top: 10vmin;margin-bottom: 8vmin">
+  <% if (type[0]!==undefined){ %>
+  <div class=" col-md-6">
+  <div class="card" style="background-color: white;box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);">
+    <div class="card-body text-center">
+      <% if( type[0].h_type==='G') type[0].h_type='Government'; %>
+      <% if( type[0].h_type==='P') type[0].h_type='Private'; %>
+      <h5 class="card-title" style="font-size: 30px;color: black;">Patients in <%= type[0].h_type %> Hospitals</h5><hr>
+      <p class="card-text" style="font-weight: 500;font-size: 60px;background-color: green;"><%= Math.floor(type[0].percentage *100)/100 %>%</p>
+      <p style="font-size: 22px;" class="text-muted">Total count: <%= type[0].count %></p>
+    </div>
+  </div>
+</div>
+  <% } %> 
+  <% if (type[1]!==undefined){ %>
+  <div class=" col-md-6">
+    <div class="card" style="background-color: white;box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);">
+      <div class="card-body text-center">
+        <% if( type[1].h_type==='G') type[1].h_type='Government'; %>
+        <% if( type[1].h_type==='P') type[1].h_type='Private'; %>
+        <h5 class="card-title" style="font-size: 30px;color: black;">Patients in <%= type[1].h_type %> Hospitals</h5><hr>
+        <p class="card-text" style="font-weight: 500;font-size: 60px;background-color:rgba(246, 71, 71, 1);"><%= Math.floor(type[1].percentage*100)/100 %>%</p>
+        <p style="font-size: 22px;" class="text-muted">Total count: <%= type[1].count %></p>
+      </div>
+    </div>
+  </div>
+    <% } %>   
+</div>
+
+<hr style="width: 100%;height: 2px;margin: 40px auto;">
+<% var tot_hosp_count=0 %>
+<% for(var i = 0;i<type2.length;i++){ %>
+<%  tot_hosp_count+=type2[i].count; %>
+<% } %>
+
+<h3 style="text-align: center;margin-top: 8vmin;color:lightgreen;">Total count of hospitals : <%= tot_hosp_count %> </h3>
+<div class="row container mx-auto" style="margin-top: 10vmin;margin-bottom: 6vmin">
+
+  <% if (type2[0]!==undefined){ %>
+  <div class=" col-md-6">
+  <div class="card" style="background-color: white;box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);">
+    <div class="card-body text-center">
+      <% if( type2[0].H_type==='G') type2[0].H_type='Government'; %>
+      <% if( type2[0].H_type==='P') type2[0].H_type='Private'; %>
+      <h5 class="card-title" style="font-size: 30px;color: black;"><%= type2[0].H_type %> Hospitals</h5><hr>
+      <p class="card-text" style="font-weight: 500;font-size: 60px;background-color: green;"><%= Math.floor(type2[0].percentage *100)/100 %>%</p>
+      <p style="font-size: 22px;" class="text-muted">Total count: <%= type2[0].count %></p>
+    </div>
+  </div>
+</div>
+  <% } %> 
+  <% if (type2[1]!==undefined){ %>
+  <div class=" col-md-6">
+    <div class="card" style="background-color: white;box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);">
+      <div class="card-body text-center">
+        <% if( type2[1].H_type==='G') type2[1].H_type='Government'; %>
+        <% if( type2[1].H_type==='P') type2[1].H_type='Private'; %>
+        <h5 class="card-title" style="font-size: 30px;color: black;"><%= type2[1].H_type %> Hospitals</h5><hr>
+        <p class="card-text" style="font-weight: 500;font-size: 60px;background-color:rgba(246, 71, 71, 1);"><%= Math.floor(type2[1].percentage*100)/100 %>%</p>
+        <p style="font-size: 22px;" class="text-muted">Total count: <%= type2[1].count %></p>
+      </div>
+    </div>
+  </div>
+    <% } %>   
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="js/view.js"></script>
+<%- include('partials/footer'); -%>
