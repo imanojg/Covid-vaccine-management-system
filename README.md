@@ -1,8 +1,8 @@
-# COVAC
+# COVAC-(Arm yourself Against Covid-19)
  [![Made withExpress](https://img.shields.io/badge/Made%20with-Express-yellow?style=for-the-badge&logo=NodeJS)]() [![Made MUI](https://img.shields.io/badge/Made%20with-CSS-orange?style=for-the-badge&logo=css)]()  [![Made withMySQL](https://img.shields.io/badge/Made%20with-MySQL-blue?style=for-the-badge&logo=MySQL)]()  ![Made withNode.js](https://img.shields.io/badge/Made%20with-Node.js-green?style=for-the-badge&logo=node.js)
 <br>
 <img src="public/images/logo.png"><br>
-This project is developed as an academic project for DBMS subject and . It is Web Application based which controls and maintains the flow of vaccines.<br>
+This project is developed as an academic project for DBMS subject . It is Web Application based which controls and maintains the flow of vaccines.<br>
 <br>
 
 
